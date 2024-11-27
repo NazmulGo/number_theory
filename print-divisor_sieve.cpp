@@ -1,35 +1,61 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
-#define nl "\n"
-#define saiful_islam_bk
-const int N=1e6+9;
+typedef long long ll;
+typedef long double ld;
 
-vector<int>d[N];
-void ok(){
-  for(int i=1; i*i<N; i++) {
-      for(int j=i*i; j<N; j+=i) {
-        d[j].push_back(i);
-        if(j/i!=i) d[j].push_back(j/i);
-      }
-  }
-}
-void solve(int ii){
-	int n, m; cin>>n;
-  //print all divisors of n
-    for(auto k:d[n]){
-      cout<<k<<" ";
+#define pb push_back
+#define MOD 1000000007
+#define vll vector<ll>
+#define endl "\n" 
+#define all(v) v.begin(), v.end()
+#define mem(a,b) memset(a, b, sizeof(a))
+#define co(n) cout << n << endl
+#define yes cout << "YES" << endl
+#define no cout << "NO" << endl
+#define fr(x, n) for (int i = x; i < n; ++i)
+#define fraction(x) cout << fixed << setprecision(x)
+#define Baba_Yaga ios_base::sync_with_stdio(0); cin.tie(NULL); cout.tie(NULL);
+ 
+const double eps = 1e-9;
+const int N = 1e5+123;
+
+ll gcd(ll a,ll b) { return __gcd(a,b); }
+ll lcm(ll a,ll b) { return (a*b)/__gcd(a,b); }
+
+int dx[] = {0, 0, +1, -1, +1, +1, -1, -1};
+int dy[] = {+1, -1, 0, 0, +1, -1, +1, -1};
+
+
+void solve()
+{
+   vll arr[N+1];
+   for(int i=1; i*i<= N; i++)
+   {
+    for(int j=i*i; j <= N; j+=i)
+    {
+        arr[j].pb(i);
+        if( (j / i) != i)
+        {
+            arr[j].pb(j/i);
+        }
     }
-    cout<<nl;
+   }
+//    for(int i=1; i<=100; i++)
+//    {
+//     cout << i << ": ";
+//     for(int j=0; j<arr[i].size(); j++)
+//     {
+//         cout << arr[i][j] << " ";
+//     }
+//     cout << endl;
+//    }
 }
-int main(){
-  ios_base::sync_with_stdio(0);
-  cin.tie(0);
-	saiful_islam_bk
-	int test=1;
-  ok();
-	  cin>>test;
-	for(int ii=1; ii<=test; ii++){
-		//cout<<"Case "<<ii<<": ";
-		solve(ii);
-	}
+
+// --- Think the problem backwards ---
+
+int main()
+{
+    Baba_Yaga;
+    ll tc = 1; //cin >> tc;
+    while(tc--) solve();
 }
